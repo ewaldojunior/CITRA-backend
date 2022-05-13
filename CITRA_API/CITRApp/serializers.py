@@ -1,33 +1,25 @@
 from rest_framework import serializers
 from CITRApp import models
+from CITRApp.validators import *
 
 class UserSerializer(serializers.ModelSerializer):
-    # senha = serializers.CharField(
-    #     style={'input_type': 'password'},
-    #     write_only=True,
-    # label="Senha"
-    # )
-
-    # senha_confirm = serializers.CharField(
-    #     style={'input_type': 'password'},
-    #     write_only=True,
-    #     label="Confirme a senha"
-    # )
 
     class Meta:
         model = models.Usuario
         fields = '__all__'
     
-    # def save(self):
-    #     conta = models.Usuario(
-    #         Email = self.validated_data['Email'], 
-    #     )
-    #     senha = self.validated_data['senha']
-    #     senha_confirm = self.validated_data['senha_confirm']
+    def validate(self, data):
+        if not cpf_valido(data['CPF']):
+            raise serializers.ValidationError({'CPF':'O número é inválido'})
+        
+        if not nome_valido(data['NomeCompleto']):
+            raise serializers.ValidationError({'NomeCompleto':'Não inclua números neste campo'})
 
-    #     if senha != senha_confirm:
-    #         raise serializers.ValidationError({'password': 'As senhas não são iguais.'})
-    #     conta.set_password(senha)
-    #     conta.save()
+        if not celular_valido(data['Celular']):
+            raise serializers.ValidationError({'Celular':'O número precisa seguir este modelo: XX XXXXX-XXXX'})
+        return data
 
-    #     return conta
+
+
+
+    
