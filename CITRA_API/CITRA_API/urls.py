@@ -29,5 +29,4 @@ router.register('usuarios', UserViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
-    #path('cadastrar_usuario/', ListaUsuarios.as_view())
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
