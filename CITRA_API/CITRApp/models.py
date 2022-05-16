@@ -9,7 +9,7 @@ class Usuario(models.Model):
     Senha = models.CharField(max_length=30)
     CPF = models.CharField(max_length=11, unique=True)
     DataNasc = models.DateField(null=True)
-    Celular = models.CharField(null=True, max_length=11)
+    Celular = models.CharField(null=True, max_length=13)
     Foto = models.ImageField(null=True)
     Curriculo = models.FileField(null=True)
 
