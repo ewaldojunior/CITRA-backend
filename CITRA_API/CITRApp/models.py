@@ -1,5 +1,4 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser
 from uuid import uuid4
 
 class Usuario(models.Model):
@@ -8,10 +7,12 @@ class Usuario(models.Model):
     Email = models.EmailField(max_length=254, unique=True, error_messages={'unique': "O email cadastrado já existe."})
     Senha = models.CharField(max_length=30)
     CPF = models.CharField(max_length=11, unique=True)
-    DataNasc = models.DateField(null=True)
-    Celular = models.CharField(null=True, max_length=13)
+    DataNasc = models.DateField()
+    Celular = models.CharField(max_length=13, default=0)
     Foto = models.ImageField(null=True)
     Curriculo = models.FileField(null=True)
+    CEP = models.CharField(max_length=9, default=0)
+    Descricao = models.CharField(null=True, max_length=500)
 
     def __str__(self):
         return self.NomeCompleto

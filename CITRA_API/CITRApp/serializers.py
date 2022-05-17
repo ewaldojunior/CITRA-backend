@@ -1,4 +1,3 @@
-from dataclasses import fields
 from rest_framework import serializers
 from CITRApp import models
 from CITRApp.validators import *
@@ -15,6 +14,10 @@ class UserSerializer(serializers.ModelSerializer):
         
         if not celular_valido(data['Celular']):
             raise serializers.ValidationError({'Celular':'O número precisa seguir este modelo: XX XXXXX-XXXX'})
+        
+        if not cep_valido(data['CEP']):
+            raise serializers.ValidationError({'CEP':'O formato do CEP é inválido (XXXXX-XXX)'})
+
         return data
 
 
