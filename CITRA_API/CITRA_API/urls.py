@@ -18,7 +18,7 @@ from django.contrib import admin
 from rest_framework import routers
 from django.urls import path, include
 
-from CITRApp.views import UserViewSet #, ListaUsuarios
+from CITRApp.views import UserViewSet
 
 from django.conf.urls.static import static
 from django.conf import settings
