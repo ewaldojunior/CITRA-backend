@@ -5,7 +5,7 @@ from CITRApp.validators import *
 class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
-        model = models.Usuario
+        model = models.User
         fields = '__all__'
     
     def validate(self, data):
