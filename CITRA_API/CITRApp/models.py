@@ -32,8 +32,3 @@ class Candidacies(models.Model):
     candidaturaId = models.UUIDField(primary_key=True, default=uuid4, editable=False)
     vacancyID = models.ForeignKey(Vacancy, related_name='vacancyID', on_delete=models.CASCADE)
     userID = models.ForeignKey(User, related_name='userID', on_delete=models.CASCADE)
-
-
-
-
-

@@ -1,4 +1,4 @@
-from rest_framework import viewsets, generics
+from rest_framework import viewsets
 from CITRApp.serializers import UserSerializer
 from CITRApp.models import User
 

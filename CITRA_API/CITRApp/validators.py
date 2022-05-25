@@ -1,6 +1,5 @@
 import re
 from validate_docbr import CPF
-from pycep_correios import get_address_from_cep, WebService, exceptions
 
 def cpf_valido(numero_CPF):
     cpf = CPF()
