@@ -20,8 +20,10 @@ class UserSerializer(serializers.ModelSerializer):
 
         return data
 
-
-
+class VacancySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Vacancy
+        fields = '__all__'
 
 
     

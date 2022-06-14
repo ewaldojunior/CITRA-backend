@@ -17,16 +17,18 @@ class User(models.Model):
     def __str__(self):
         return self.name
 
+#Observar as regras necessárias
 class Vacancy(models.Model):
     vacancyId = models.UUIDField(primary_key=True, default=uuid4, editable=False)
     nameVacancy = models.CharField(max_length=255)
     nameCompany = models.CharField(max_length=255)
     shifts = models.CharField(max_length=50)
-    cpf = models.CharField(max_length=14, unique=True)
+    fone = models.CharField(max_length=13, blank=True)
     cep = models.CharField(max_length=9, default=0)
     salary = models.FloatField(max_length=25)
     picture = models.ImageField(blank=True)
     typeRemuneration = models.CharField(max_length=100)
+    description = models.CharField(blank=True, max_length=500)
 
 class Candidacies(models.Model):
     candidaturaId = models.UUIDField(primary_key=True, default=uuid4, editable=False)
