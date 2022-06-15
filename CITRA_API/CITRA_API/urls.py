@@ -8,7 +8,6 @@ from CITRApp.views import UserViewSet
 from django.conf.urls.static import static
 from django.conf import settings
 
-#router = routers.DefaultRouter()
 router = routers.SimpleRouter()
 
 router.register(r'users', UserViewSet)

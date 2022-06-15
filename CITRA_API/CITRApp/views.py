@@ -9,10 +9,12 @@ from django_filters.rest_framework import DjangoFilterBackend
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    filter_backends = [DjangoFilterBackend, filters.OrderingFilter, filters.SearchFilter]
-    ordering_fields = ['name']
-    search_fields = ['name']
+
 
 class VacancyViewSet(viewsets.ModelViewSet):
     queryset = Vacancy.objects.all()
     serializer_class = VacancySerializer
+    filter_backends = [DjangoFilterBackend, filters.OrderingFilter, filters.SearchFilter]
+    ordering_fields = ['nameVacancy']
+    search_fields = ['nameVacancy', 'nameCompany', 'salary', 'cep', 'typeRemuneration']
+    filterset_fields = ['shifts']

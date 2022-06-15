@@ -17,17 +17,23 @@ class User(models.Model):
     def __str__(self):
         return self.name
 
-#Observar as regras necessárias
 class Vacancy(models.Model):
+
+    SHIFTS = (
+        ('M', 'Manhã'),
+        ('T', 'Tarde'),
+        ('I', 'Integral')
+    )
+
     vacancyId = models.UUIDField(primary_key=True, default=uuid4, editable=False)
-    nameVacancy = models.CharField(max_length=255)
-    nameCompany = models.CharField(max_length=255)
-    shifts = models.CharField(max_length=50)
+    nameVacancy = models.CharField(max_length=255, blank=False)
+    nameCompany = models.CharField(max_length=255, blank=False)
+    shifts = models.CharField(max_length=1, choices=SHIFTS, blank=False)
     fone = models.CharField(max_length=13, blank=True)
-    cep = models.CharField(max_length=9, default=0)
-    salary = models.FloatField(max_length=25)
+    cep = models.CharField(max_length=9, blank=False)
+    salary = models.FloatField(max_length=25, blank=False)
     picture = models.ImageField(blank=True)
-    typeRemuneration = models.CharField(max_length=100)
+    typeRemuneration = models.CharField(max_length=100, blank=False)
     description = models.CharField(blank=True, max_length=500)
 
 class Candidacies(models.Model):
