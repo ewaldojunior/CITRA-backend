@@ -1,3 +1,5 @@
+from operator import mod
+from attr import fields
 from rest_framework import serializers
 from CITRApp import models
 from CITRApp.validators import *
@@ -25,5 +27,9 @@ class VacancySerializer(serializers.ModelSerializer):
         model = models.Vacancy
         fields = '__all__'
 
+class CandidacySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Candidacies
+        fields = '__all__'
 
     
