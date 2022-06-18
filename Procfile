@@ -1,1 +1,0 @@
-web: gunicorn CITRA_API.wsgi
