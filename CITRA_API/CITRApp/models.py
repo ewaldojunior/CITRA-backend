@@ -46,6 +46,8 @@ class Vacancy(models.Model):
     picture = models.ImageField(blank=True)
     typeHires = models.CharField(max_length=10, choices=HIRES, blank=True)
     description = models.CharField(blank=True, max_length=500)
+    userIdVacancy = models.ForeignKey(User, related_name='userIdVacancy', on_delete=models.CASCADE, default=uuid4)
+
 
 class Candidacies(models.Model):
      candidaturaId = models.UUIDField(primary_key=True, default=uuid4, editable=False)
