@@ -22,7 +22,7 @@ class Migration(migrations.Migration):
                 ('cep', models.CharField(default=0, max_length=9)),
                 ('salary', models.FloatField(max_length=25)),
                 ('picture', models.ImageField(blank=True, upload_to='')),
-                ('typeRemuneration', models.CharField(max_length=100)),
+                ('typeHires', models.CharField(max_length=100)),
             ],
         ),
     ]
