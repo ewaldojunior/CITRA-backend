@@ -25,11 +25,11 @@ $ python -m venv .venv
 # Entre no ambiente virtual
 $ source .venv/Scripts/activate
 
-# Entre no ambiente virtual
-$ cd CITRA-API/
-
 # Instale as bibliotecas necessárias do requirements.txt
 $ pip install -r requirements.txt
+
+# Entre no ambiente virtual
+$ cd CITRA-API/
 
 # Execute a aplicação em modo de desenvolvimento
 $ python manage.py runserver
